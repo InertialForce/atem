@@ -1,0 +1,12 @@
+.iconFriends {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+
+.friend__name {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}

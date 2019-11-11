@@ -1,0 +1,13 @@
+.friends {
+  grid-area: f;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  height: 200px;
+  margin-top: 40px;
+  padding: 6px 8px;
+}
+
+.heading__friends {
+  font-size: 18px;
+  font-weight: 600;
+}
