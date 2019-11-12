@@ -3,6 +3,7 @@ import s from "./Dialogs.module.css"
 import send__b from "./../../img/email.svg"
 import Message from "./Message/Message";
 import Dialog from "./Dialog/Dialog";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
 
 const Dialogs = (props) => {
 
@@ -11,12 +12,12 @@ const Dialogs = (props) => {
 
   let newMessageElement = React.createRef();
   let newMessage = () => {
-    props.dispatch({type: "ADD-MESSAGE"});
+    props.dispatch(addMessageActionCreator());
   };
 
   let changeNewMessageText = () => {
     let text = newMessageElement.current.value;
-    props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT", newText: text})
+    props.dispatch(updateNewMessageTextActionCreator(text))
   };
 
   return (
