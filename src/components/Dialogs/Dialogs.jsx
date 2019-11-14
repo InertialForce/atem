@@ -6,17 +6,15 @@ import Dialog from "./Dialog/Dialog";
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
 
 const Dialogs = (props) => {
-
   let dialogsElement = props.stateDialogs.dialogsData.map(d => <Dialog id={d.id} name={d.name}/>);
   let messagesElement = props.stateDialogs.messagesData.map(m => <Message message={m.message}/>);
 
-  let newMessageElement = React.createRef();
   let newMessage = () => {
     props.dispatch(addMessageActionCreator());
   };
 
-  let changeNewMessageText = () => {
-    let text = newMessageElement.current.value;
+  let changeNewMessageText = (event) => {
+    let text = event.target.value;
     props.dispatch(updateNewMessageTextActionCreator(text))
   };
 
@@ -32,8 +30,7 @@ const Dialogs = (props) => {
         <div className={s.addNewMessage}>
           <textarea className={s.newMessage}
                     value={props.stateDialogs.newMessageText}
-                    onChange={changeNewMessageText}
-                    ref={newMessageElement}/>
+                    onChange={changeNewMessageText}/>
           <button className={s.send__b} onClick={newMessage}>
             <img src={send__b} alt="New Message"/>
           </button>

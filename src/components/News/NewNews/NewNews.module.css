@@ -1,0 +1,18 @@
+.newNews {
+  display: grid;
+  justify-items: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.newsText {
+  margin-bottom: 10px;
+}
+
+.funny__picture {
+  width: 400px;
+  height: 350px;
+  border-radius: 5px;
+}
