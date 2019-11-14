@@ -3,19 +3,19 @@ import s from "./Dialogs.module.css"
 import send__b from "./../../img/email.svg"
 import Message from "./Message/Message";
 import Dialog from "./Dialog/Dialog";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+import {addMessageCreator, updateNewMessageTextCreator} from "../../redux/messageReduser";
 
 const Dialogs = (props) => {
   let dialogsElement = props.stateDialogs.dialogsData.map(d => <Dialog id={d.id} name={d.name}/>);
   let messagesElement = props.stateDialogs.messagesData.map(m => <Message message={m.message}/>);
 
   let newMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.dispatch(addMessageCreator());
   };
 
   let changeNewMessageText = (event) => {
     let text = event.target.value;
-    props.dispatch(updateNewMessageTextActionCreator(text))
+    props.dispatch(updateNewMessageTextCreator(text))
   };
 
   return (

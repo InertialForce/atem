@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./MyPosts.module.css"
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
+import {addPostCreator, updateNewPostTextCreator} from "../../../redux/profileReduser";
 
 const MyPosts = (props) => {
 
@@ -9,12 +9,12 @@ const MyPosts = (props) => {
 
   let addPostElement = React.createRef();
   let addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.dispatch(addPostCreator());
   };
 
   let changePostMessage = () => {
     let text = addPostElement.current.value;
-    props.dispatch(updateNewPostTextActionCreator(text))
+    props.dispatch(updateNewPostTextCreator(text))
   };
 
   return (

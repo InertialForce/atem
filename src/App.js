@@ -26,7 +26,6 @@ const App = (props) => {
         <Route path="/music" render={Music}/>
         <Route path="/settings" render={Settings}/>
       </div>
-
       <Friends stateFriends={props.state.friendsPage}/>
     </div>
   );

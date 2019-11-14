@@ -1,17 +1,17 @@
 import React from 'react';
 import s from "./News.module.css"
 import NewNews from "./NewNews/NewNews";
-import {addNewsActionCreator, updateNewNewsActionCreator} from "../../redux/state";
+import {addNewsCreator, updateNewNewsCreator} from "../../redux/newsReduser";
 
 const News = (props) => {
   let newNewsElement = props.stateNews.newsData.map(n => <NewNews newsMessage={n.newsMessage}/>);
 
   let newNews = () => {
-    props.dispatch(addNewsActionCreator());
+    props.dispatch(addNewsCreator());
   };
   let changeNewNewsText = (event) => {
     let text = event.target.value;
-    props.dispatch(updateNewNewsActionCreator(text))
+    props.dispatch(updateNewNewsCreator(text))
   };
 
   return (

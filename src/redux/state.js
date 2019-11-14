@@ -1,9 +1,6 @@
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
-const ADD_NEWS = "ADD-NEWS";
-const UPDATE_NEW_NEWS_TEXT = "UPDATE_NEW_NEWS_TEXT";
+import profileReduser from "./profileReduser";
+import newsReduser from "./newsReduser";
+import messageReduser from "./messageReduser";
 
 let store = {
   _state: {
@@ -48,7 +45,6 @@ let store = {
       ],
       newNewsText: ""
     },
-
   },
   _callSubscriber() {
   },
@@ -61,52 +57,13 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 4,
-        message: this._state.profilePage.newPostText,
-        likes: 0
-      };
-      this._state.profilePage.postsData.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state)
-    } else if (action.type === ADD_MESSAGE) {
-      let newMessage = {
-        id: 6,
-        message: this._state.messagePage.newMessageText
-      };
-      this._state.messagePage.messagesData.push(newMessage);
-      this._state.messagePage.newMessageText = "";
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.messagePage.newMessageText = action.newText;
-      this._callSubscriber(this._state)
-    } else if (action.type === ADD_NEWS) {
-      let newNews = {
-        id: 3,
-        newsMessage: this._state.newsPage.newNewsText
-      };
-      this._state.newsPage.newsData.push(newNews);
-      this._state.newsPage.newNewsText = "";
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_NEWS_TEXT) {
-      this._state.newsPage.newNewsText = action.newText;
-      this._callSubscriber(this._state)
-    }
+
+    this._state.profilePage = profileReduser(this._state.profilePage, action);
+    this._state.messagePage = messageReduser(this._state.messagePage, action);
+    this._state.newsPage = newsReduser(this._state.newsPage, action);
+
+    this._callSubscriber(this._state)
   }
 };
-
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
-
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text});
-
-export const addNewsActionCreator = () => ({type: ADD_NEWS});
-export const updateNewNewsActionCreator = (text) => ({type: UPDATE_NEW_NEWS_TEXT, newText: text});
-
 
 export default store;
