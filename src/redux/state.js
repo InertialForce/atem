@@ -1,6 +1,6 @@
-import profileReduser from "./profileReduser";
-import newsReduser from "./newsReduser";
-import messageReduser from "./messageReduser";
+import profileReducer from "./profileReducer";
+import newsReducer from "./newsReducer";
+import messageReducer from "./messageReducer";
 
 let store = {
   _state: {
@@ -58,9 +58,9 @@ let store = {
 
   dispatch(action) {
 
-    this._state.profilePage = profileReduser(this._state.profilePage, action);
-    this._state.messagePage = messageReduser(this._state.messagePage, action);
-    this._state.newsPage = newsReduser(this._state.newsPage, action);
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagePage = messageReducer(this._state.messagePage, action);
+    this._state.newsPage = newsReducer(this._state.newsPage, action);
 
     this._callSubscriber(this._state)
   }

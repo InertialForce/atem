@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./News.module.css"
 import NewNews from "./NewNews/NewNews";
-import {addNewsCreator, updateNewNewsCreator} from "../../redux/newsReduser";
+import {addNewsCreator, updateNewNewsCreator} from "../../redux/newsReducer";
 
 const News = (props) => {
   let newNewsElement = props.stateNews.newsData.map(n => <NewNews newsMessage={n.newsMessage}/>);

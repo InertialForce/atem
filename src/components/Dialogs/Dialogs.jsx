@@ -3,7 +3,7 @@ import s from "./Dialogs.module.css"
 import send__b from "./../../img/email.svg"
 import Message from "./Message/Message";
 import Dialog from "./Dialog/Dialog";
-import {addMessageCreator, updateNewMessageTextCreator} from "../../redux/messageReduser";
+import {addMessageCreator, updateNewMessageTextCreator} from "../../redux/messageReducer";
 
 const Dialogs = (props) => {
   let dialogsElement = props.stateDialogs.dialogsData.map(d => <Dialog id={d.id} name={d.name}/>);

@@ -1,7 +1,15 @@
 const ADD_NEWS = "ADD-NEWS";
 const UPDATE_NEW_NEWS_TEXT = "UPDATE-NEW-NEWS-TEXT";
 
-const newsReduser = (state, action) => {
+let initialState = {
+  newsData: [
+    {id: 1, newsMessage: "Смешная картинка"},
+    {id: 2, newsMessage: "Не смешная картинка"}
+  ],
+  newNewsText: ""
+};
+
+const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEWS:
       let newNews = {
@@ -22,4 +30,4 @@ const newsReduser = (state, action) => {
 export const addNewsCreator = () => ({type: ADD_NEWS});
 export const updateNewNewsCreator = (text) => ({type: UPDATE_NEW_NEWS_TEXT, newText: text});
 
-export default newsReduser;
+export default newsReducer;
