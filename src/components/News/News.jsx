@@ -1,17 +1,16 @@
 import React from 'react';
 import s from "./News.module.css"
 import NewNews from "./NewNews/NewNews";
-import {addNewsCreator, updateNewNewsCreator} from "../../redux/newsReducer";
 
 const News = (props) => {
-  let newNewsElement = props.stateNews.newsData.map(n => <NewNews newsMessage={n.newsMessage}/>);
+  let newNewsElement = props.newsData.map(n => <NewNews newsMessage={n.newsMessage}/>);
 
   let newNews = () => {
-    props.dispatch(addNewsCreator());
+    props.addNews();
   };
   let changeNewNewsText = (event) => {
     let text = event.target.value;
-    props.dispatch(updateNewNewsCreator(text))
+    props.updateNewNews(text)
   };
 
   return (
@@ -19,7 +18,7 @@ const News = (props) => {
       <div className={s.addNews__block}>
         <textarea className={s.newNewsMessage}
                   onChange={changeNewNewsText}
-                  value={props.stateNews.newNewsText}/>
+                  value={props.newNewsText}/>
         <button className={s.addNewsMessage}
                 onClick={newNews}>New News</button>
       </div>

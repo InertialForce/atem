@@ -3,11 +3,11 @@ import {Route} from "react-router-dom";
 import './App.css';
 import Sidebar from "./components/Sidebar/Sidebar";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
-import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import Friends from "./components/Friends/Friends";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import FriendsContainer from "./components/Friends/FriendsContainer";
+import NewsContainer from "./components/News/NewsContainer";
 
 const App = (props) => {
   return (
@@ -15,18 +15,15 @@ const App = (props) => {
       <Sidebar/>
       <div className="content">
         <Route path="/profile"
-               render={() => <Profile stateProfile={props.state.profilePage}
-                                      dispatch={props.dispatch}/>}/>
+               render={() => <Profile store={props.store}/>}/>
         <Route path="/dialogs"
-               render={() => <Dialogs stateDialogs={props.state.messagePage}
-                                      dispatch={props.dispatch}/>}/>
+               render={() => <DialogsContainer store={props.store}/>}/>
         <Route path="/news"
-               render={() => <News stateNews={props.state.newsPage}
-                                   dispatch={props.dispatch}/>}/>
+               render={() => <NewsContainer store={props.store}/>}/>
         <Route path="/music" render={Music}/>
         <Route path="/settings" render={Settings}/>
       </div>
-      <Friends stateFriends={props.state.friendsPage}/>
+      <FriendsContainer store={props.store}/>
     </div>
   );
 };
