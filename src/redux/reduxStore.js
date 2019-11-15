@@ -13,6 +13,6 @@ let reducersBatch = combineReducers(
   }
 );
 
-let  store = createStore(reducersBatch);
+let store = createStore(reducersBatch);
 
 export default store;
