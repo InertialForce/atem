@@ -15,15 +15,15 @@ const App = (props) => {
       <Sidebar/>
       <div className="content">
         <Route path="/profile"
-               render={() => <Profile store={props.store}/>}/>
+               render={() => <Profile/>}/>
         <Route path="/dialogs"
-               render={() => <DialogsContainer store={props.store}/>}/>
+               render={() => <DialogsContainer/>}/>
         <Route path="/news"
-               render={() => <NewsContainer store={props.store}/>}/>
+               render={() => <NewsContainer/>}/>
         <Route path="/music" render={Music}/>
         <Route path="/settings" render={Settings}/>
       </div>
-      <FriendsContainer store={props.store}/>
+      <FriendsContainer/>
     </div>
   );
 };
