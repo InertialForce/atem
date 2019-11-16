@@ -3,7 +3,7 @@ import s from "./News.module.css"
 import NewNews from "./NewNews/NewNews";
 
 const News = (props) => {
-  let newNewsElement = props.newsData.map(n => <NewNews newsMessage={n.newsMessage}/>);
+  let newNewsElement = props.newsData.map(n => <NewNews key={n.id} newsMessage={n.newsMessage}/>);
 
   let newNews = () => {
     props.addNews();
