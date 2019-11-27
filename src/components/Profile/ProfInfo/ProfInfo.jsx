@@ -1,11 +1,10 @@
 import React from 'react';
-import icon from "./../../../img/batman-icon.png"
 import s from "./ProfInfo.module.css"
 import Preloader from "../../common/Preloader/Preloader";
 
 
 const ProfInfo = (props) => {
-  if(!props.profile) {
+  if (!props.profile) {
     return <Preloader/>
   }
 
