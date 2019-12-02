@@ -3,11 +3,32 @@
   border: 2px solid #000000;
   border-radius: 10px;
   height: 200px;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 6px 8px;
 }
 
 .heading__friends {
   font-size: 18px;
   font-weight: 600;
+}
+
+.loginBlock {
+  margin-top: 50px;
+}
+
+.login {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 25px;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  color: #000000;
+  text-decoration: none;
+  transition: .2s linear;
+}
+
+.login:hover {
+  border-color: #e77937;
+  color: #e77937;
 }
